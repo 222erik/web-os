@@ -33,11 +33,14 @@
 
 .windowheader {
     background-color: #AAAADD;
-    border-radius: 10px10px00;
+    border-radius: 10px 10px 0 0;
     padding: 10px;
     text-align: center;
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: grab;
+    /* Stretch the header across the whole top of the window,
+       counteracting the window's 12px padding so it reaches the edges. */
+    margin: -12px -12px 12px -12px;
 }
