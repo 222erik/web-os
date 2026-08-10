@@ -21,10 +21,18 @@
         <p style="margin: 15px 15px; height: auto;">
             web-os
         </p>
-        <p style="margin: 15px 15px; height: auto;">
-            6/21/2023 3:41 PM
+        <p style="margin: 15px 15px; height: auto;" id="timeElement">
         </p>
     </div>
+
+    <script>
+        function updateTime() {
+            var currentTime = new Date().toLocaleString()
+            var timeText = document.querySelector("#timeElement")
+            timeText.innerHTML = currentTime
+        }
+        setInterval(updateTime, 1000)
+    </script>
 </body>
 
 </html>
