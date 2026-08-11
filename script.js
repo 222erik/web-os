@@ -62,8 +62,6 @@ function dragElement(element) {
         document.onmousemove = null;
     }
 }
-var welcome = document.querySelector("#welcome");
-var notes = document.querySelector("#notes")
 
 function closeWindow(element) {
     element.style.display = "none"
@@ -75,13 +73,11 @@ function openWindow(element) {
 
 function selectIcon(element) {
     element.classList.add("selected");
-    selectedIcon = element
     openWindow(document.querySelector("#" + element.id.replace("Logo", "")))
 }
 
 function deselectIcon(element) {
     element.classList.remove("selected");
-    selectedIcon = undefined
     closeWindow(document.querySelector("#" + element.id.replace("Logo", "")))
 }
 
@@ -91,6 +87,7 @@ function handleIconTap(element) {
     } else {
         selectIcon(element)
     }
+    handleWindowTap(document.querySelector("#" + element.id.replace("Logo", "")))
 }
 
 var biggestZIndex = 1
@@ -100,33 +97,24 @@ function handleWindowTap(element) {
     element.style.zIndex = biggestZIndex
 }
 
-var welcomeClose = document.querySelector("#welcomeclose")
-var welcomeLogo = document.querySelector("#welcomeLogo")
+function initWindow(appname) {
+    var app = document.getElementById(appname)
+    var closeButton = document.getElementById(appname + "close")
+    var appLogo = document.getElementById(appname + "Logo")
 
-var selectedIcon = welcomeLogo
+    closeButton.addEventListener("click", function() {
+        closeWindow(app)
+        deselectIcon(appLogo)
+    })
 
-welcomeClose.addEventListener("click", function() {
-    closeWindow(welcome);
-    deselectIcon(welcomeLogo)
-});
+    appLogo.addEventListener("click", function() {
+        handleIconTap(this)
+    })
 
-welcomeLogo.addEventListener("click", function() {
-    handleIconTap(this)
-});
+    app.addEventListener("mousedown", function() {
+        handleWindowTap(this)
+    })
+}
 
-welcome.addEventListener("mousedown", function() {
-    handleWindowTap(this)
-})
-
-document.querySelector("#notesclose").addEventListener("click", function() {
-    closeWindow(notes);
-    deselectIcon(document.querySelector("#notesLogo"))
-})
-
-document.querySelector("#notesLogo").addEventListener("click", function() {
-    handleIconTap(this);
-})
-
-notes.addEventListener("mousedown", function() {
-    handleWindowTap(this)
-})
+initWindow("welcome")
+initWindow("notes")

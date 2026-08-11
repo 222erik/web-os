@@ -13,8 +13,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 02px6px rgba(229, 57, 53, 0.5);
-    transition: transform0.15s ease, box-shadow0.15s ease;
 }
 
 .window {
