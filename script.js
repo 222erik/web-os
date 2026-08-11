@@ -7,6 +7,7 @@ setInterval(updateTime, 1000)
 
 // Make the DIV element draggable:
 dragElement(document.getElementById("welcome"));
+dragElement(document.getElementById("notes"))
 
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
 function dragElement(element) {
@@ -62,6 +63,7 @@ function dragElement(element) {
     }
 }
 var welcome = document.querySelector("#welcome");
+var notes = document.querySelector("#notes")
 
 function closeWindow(element) {
     element.style.display = "none"
@@ -70,20 +72,6 @@ function closeWindow(element) {
 function openWindow(element) {
     element.style.display = "block"
 }
-
-var welcomeClose = document.querySelector("#welcomeclose")
-var welcomeLogo = document.querySelector("#welcomeLogo")
-
-welcomeClose.addEventListener("click", function() {
-    closeWindow(welcome);
-    deselectIcon(welcomeLogo)
-});
-
-welcomeLogo.addEventListener("click", function() {
-    handleIconTap(this)
-});
-
-var selectedIcon = welcomeLogo
 
 function selectIcon(element) {
     element.classList.add("selected");
@@ -105,6 +93,40 @@ function handleIconTap(element) {
     }
 }
 
+var biggestZIndex = 1
+
+function handleWindowTap(element) {
+    biggestZIndex++
+    element.style.zIndex = biggestZIndex
+}
+
+var welcomeClose = document.querySelector("#welcomeclose")
+var welcomeLogo = document.querySelector("#welcomeLogo")
+
+var selectedIcon = welcomeLogo
+
+welcomeClose.addEventListener("click", function() {
+    closeWindow(welcome);
+    deselectIcon(welcomeLogo)
+});
+
+welcomeLogo.addEventListener("click", function() {
+    handleIconTap(this)
+});
+
+welcome.addEventListener("mousedown", function() {
+    handleWindowTap(this)
+})
+
+document.querySelector("#notesclose").addEventListener("click", function() {
+    closeWindow(notes);
+    deselectIcon(document.querySelector("#notesLogo"))
+})
+
 document.querySelector("#notesLogo").addEventListener("click", function() {
     handleIconTap(this);
+})
+
+notes.addEventListener("mousedown", function() {
+    handleWindowTap(this)
 })
