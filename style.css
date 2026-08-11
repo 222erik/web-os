@@ -76,3 +76,13 @@
        counteracting the window's 12px padding so it reaches the edges. */
     margin: -12px -12px 12px -12px;
 }
+
+.selected {
+    outline: 3px solid #DD885F;
+    outline-offset: 3px;
+    box-shadow: 0 0 15px rgba(221, 136, 95, 0.7);
+    border-radius: 50%;
+    background-color: rgba(221, 136, 95, 0.25);
+    transform: scale(1.08);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
