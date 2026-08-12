@@ -108,3 +108,26 @@
     border-color: aqua;
     border-width: 1px;
 }
+
+.sidebarElement {
+    width: fit-content;
+    display: flex;
+    gap: 7px;
+}
+
+.sidebarElementParagraph {
+    padding: 5px 8px;
+    margin: 0;
+    border: solid black 1px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.notesElementDot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: Black;
+    align-self: center;
+}

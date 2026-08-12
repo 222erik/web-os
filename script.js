@@ -122,3 +122,30 @@ function initWindow(appname) {
 
 initWindow("welcome")
 initWindow("notes")
+
+var content = [{
+    "title": `Mickey's pass`,
+    "content": `The password to Mickey's phone is 999999`
+},
+{
+    "title": "Grocery list",
+    "content": `Bread, Milk, Snackbar, Meat`
+}]
+
+function addToSideBar(index) {
+    var sidebar = document.getElementById("sidebar")
+    var note = content[index]
+
+    var newDiv = document.createElement("div")
+    newDiv.classList.add("sidebarElement")
+    newDiv.innerHTML = `<div class="notesElementDot"></div>
+<p class="sidebarElementParagraph">${note.title}</p>`
+    newDiv.addEventListener("click", function() {
+        setNotesContent(index)
+    })
+    sidebar.appendChild(newDiv)
+}
+
+for (let i = 0; i < content.length; i++) {
+    addToSideBar(i)
+}
