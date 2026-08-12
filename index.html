@@ -34,6 +34,9 @@
         </div>
 
         <h1 style="margin-top: 0; margin-bottom: 0;">Notes</h1>
+        <div style="width: 300px; height: 400px; display: flex; justify-content: center; align-items: center;">
+            (empty)
+        </div>
     </div>
 
     <div
@@ -49,13 +52,18 @@
         <p class="applabel">Applications</p>
 
         <div id="appIcons">
-            <div id="welcomeLogo" class="selected appicon"
-                style="display: flex; align-items: center; justify-content: center; width: 96px; height: 96px; background: #AA88DD;">
-                <p style="font-size: 22px; margin: 0; color: black; font-weight: 500;">
-                    Open<br>start</p>
+            <div class="appwrapper">
+                <div id="welcomeLogo" class="selected appicon"
+                    style="display: flex; align-items: center; justify-content: center; background: #AA88DD;">
+                    <p style="font-size: 18px; margin: 0; color: black; font-weight: 500;">
+                        Open<br>start</p>
+                </div>
+                <div class="appdot visible" id="welcomeDot"></div>
             </div>
-            <img src="notes_logo.png" id="notesLogo" class="appicon"
-                style="width: 100px; height: 100px;">
+            <div class="appwrapper">
+                <img src="notes_logo.png" id="notesLogo" class="appicon">
+                <div class="appdot" id="notesDot"></div>
+            </div>
         </div>
     </div>
 

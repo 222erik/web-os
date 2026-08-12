@@ -74,11 +74,15 @@ function openWindow(element) {
 function selectIcon(element) {
     element.classList.add("selected");
     openWindow(document.querySelector("#" + element.id.replace("Logo", "")))
+    var dot = document.getElementById(element.id.replace("Logo", "") + "Dot");
+    if (dot) dot.classList.add("visible");
 }
 
 function deselectIcon(element) {
     element.classList.remove("selected");
     closeWindow(document.querySelector("#" + element.id.replace("Logo", "")))
+    var dot = document.getElementById(element.id.replace("Logo", "") + "Dot");
+    if (dot) dot.classList.remove("visible");
 }
 
 function handleIconTap(element) {

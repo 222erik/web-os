@@ -40,26 +40,45 @@
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.3);
-    font-size: 35px;
+    font-size: 22px;
     color: #111100;
     margin: 0;
-    padding: 10px 15px;
+    padding: 3px 10px;
     z-index: 10;
-    gap: 10px;
+    gap: 6px;
 }
 
 #appIcons {
     display: flex;
-    gap: 70px;
+    gap: 40px;
+    padding-bottom: 5px;
+}
+
+.appwrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.appdot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+    visibility: hidden;
+}
+
+.appdot.visible {
+    visibility: visible;
 }
 
 .applabel {
     margin: 0;
-    font-size: 35px;
+    font-size: 26px;
     font-weight: 600;
     letter-spacing: 3px;
     color: #FFFFFF;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .windowheader {
@@ -81,9 +100,11 @@
     cursor: pointer;
     border: 2px solid;
     box-sizing: border-box;
+    width: 70px;
+    height: 70px;
 }
 
 .selected {
     border-color: aqua;
-    border-width: 3px;
+    border-width: 1px;
 }
