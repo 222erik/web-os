@@ -33,10 +33,20 @@
             <button type="button" id="notesclose" class="closebutton">X</button>
         </div>
 
-        <h1 style="margin-top: 0; margin-bottom: 0;">Notes</h1>
-        <p style="text-align: left; font-size: 20px;">This is the notes app.<br>Click on a note to<br>get started 🚀</p>
+        <div style="display: flex;">
+            <div>
+                <h1 style="margin-top: 0; margin-bottom: 0;">Notes</h1>
+                <p style="text-align: left; font-size: 20px; margin-top: 5px;">This is the notes app.<br>Click on a note
+                    to<br>get started 🚀</p>
 
-        <div id="sidebar" style="display: flex; flex-direction: column; gap: 5px;"></div>
+                <div id="sidebar" style="display: flex; flex-direction: column; gap: 5px;"></div>
+            </div>
+
+            <div id="notescontentwrapper" style="display: none;">
+                <div id="notecontent"></div>
+                <button type="button">Edit</button>
+            </div>
+        </div>
     </div>
 
     <div

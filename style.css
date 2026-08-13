@@ -113,6 +113,7 @@
     width: fit-content;
     display: flex;
     gap: 7px;
+    cursor: pointer;
 }
 
 .sidebarElementParagraph {
@@ -122,6 +123,7 @@
     border-radius: 10px;
     font-size: 15px;
     font-weight: 700;
+    text-align: center;
 }
 
 .notesElementDot {
@@ -130,4 +132,23 @@
     border-radius: 50%;
     background: Black;
     align-self: center;
+    display: none;
+}
+
+#notescontentwrapper {
+    padding-left: 15px;
+    margin-left: 15px;
+    border-left: solid black 2px;
+}
+
+#notecontentTitle {
+    font-size: 30px;
+    margin: 0;
+}
+
+#notecontentContent {
+    font-size: 20px;
+    max-width: 350px;
+    overflow-wrap: break-word;
+    margin-top: 0px;
 }

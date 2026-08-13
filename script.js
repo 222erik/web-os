@@ -130,6 +130,14 @@ var content = [{
 {
     "title": "Grocery list",
     "content": `Bread, Milk, Snackbar, Meat`
+},
+{
+    "title": "Learn Coding",
+    "content": `Learn HTML, CSS and JavaScript`
+},
+{
+    "title": "Long Note",
+    "content": "This is a really loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong note"
 }]
 
 function addToSideBar(index) {
@@ -144,6 +152,26 @@ function addToSideBar(index) {
         setNotesContent(index)
     })
     sidebar.appendChild(newDiv)
+}
+
+function setNotesContent(index) {
+    var sidebar = document.getElementById("sidebar")
+    let i = 0
+    for (const child of sidebar.children) {
+        var dot = child.firstElementChild
+        if (i == index) {
+            dot.style.display = "block"
+        } else {
+            dot.style.display = "none"
+        }
+        i++
+    }
+
+    document.getElementById("notescontentwrapper").style.display = "block"
+    let note = content[index]
+    document.getElementById("notecontent").innerHTML = `
+<p id="notecontentTitle">${note.title}</h1>
+<p id="notecontentContent">${note.content}</p>`
 }
 
 for (let i = 0; i < content.length; i++) {
