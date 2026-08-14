@@ -137,7 +137,7 @@ var content = [{
 },
 {
     "title": "Long Note",
-    "content": "This is a really loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong note"
+    "content": "This is a really looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong note"
 }]
 
 function addToSideBar(index) {
@@ -154,7 +154,18 @@ function addToSideBar(index) {
     sidebar.appendChild(newDiv)
 }
 
+function updateNoteTitle() {
+    let i = 0
+    for (child of document.getElementById("sidebar").children) {
+        if (i == notesIndexInFocus) {
+            child.children[1].textContent = content[notesIndexInFocus].title
+        }
+        i++
+    }
+}
+
 function setNotesContent(index) {
+    notesIndexInFocus = index
     var sidebar = document.getElementById("sidebar")
     let i = 0
     for (const child of sidebar.children) {
@@ -167,7 +178,7 @@ function setNotesContent(index) {
         i++
     }
 
-    document.getElementById("notescontentwrapper").style.display = "block"
+    document.getElementById("notescontentwrapper").style.display = "flex"
     let note = content[index]
     document.getElementById("notecontent").innerHTML = `
 <p id="notecontentTitle">${note.title}</h1>
@@ -177,3 +188,26 @@ function setNotesContent(index) {
 for (let i = 0; i < content.length; i++) {
     addToSideBar(i)
 }
+
+var notesEditButtonState = "done"
+var notesIndexInFocus
+document.getElementById("notesEditButton").addEventListener("click", function() {
+    var note = document.getElementById("notecontent")
+    if (notesEditButtonState == "done") {
+        for (const child of note.children) {
+            child.contentEditable = "true"
+        }
+        notesEditButtonState = "edit"
+        this.textContent = "Done"
+    } else {
+        content[notesIndexInFocus].title = document.getElementById("notecontentTitle").textContent
+        content[notesIndexInFocus].content = document.getElementById("notecontentContent").textContent
+        updateNoteTitle()
+
+        for (const child of note.children) {
+            child.contentEditable = "false"
+        }
+        notesEditButtonState = "done"
+        this.textContent = "Edit"
+    }
+})
