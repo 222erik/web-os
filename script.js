@@ -123,22 +123,24 @@ function initWindow(appname) {
 initWindow("welcome")
 initWindow("notes")
 
-var content = [{
-    "title": `Mickey's pass`,
-    "content": `The password to Mickey's phone is 999999`
-},
-{
-    "title": "Grocery list",
-    "content": `Bread, Milk, Snackbar, Meat`
-},
-{
-    "title": "Learn Coding",
-    "content": `Learn HTML, CSS and JavaScript`
-},
-{
-    "title": "Long Note",
-    "content": "This is a really looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong note"
-}]
+var content = [
+    //    {
+    //        "title": `Mickey's pass`,
+    //        "content": `The password to Mickey's phone is 999999`
+    //    },
+    //    {
+    //        "title": "Grocery list",
+    //        "content": `Bread, Milk, Snackbar, Meat`
+    //    },
+    //    {
+    //        "title": "Learn Coding",
+    //        "content": `Learn HTML, CSS and JavaScript`
+    //    },
+    //    {
+    //        "title": "Long Note",
+    //        "content": "This is a really looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong note"
+    //    }
+]
 
 function addToSideBar(index) {
     var sidebar = document.getElementById("sidebar")
@@ -197,6 +199,7 @@ document.getElementById("notesEditButton").addEventListener("click", function() 
         for (const child of note.children) {
             child.contentEditable = "true"
         }
+        note.lastChild.focus()
         notesEditButtonState = "edit"
         this.textContent = "Done"
     } else {
@@ -211,3 +214,37 @@ document.getElementById("notesEditButton").addEventListener("click", function() 
         this.textContent = "Edit"
     }
 })
+
+document.getElementById("notesNewButton").addEventListener("click", function() {
+    content.push({ title: "Untitled", content: "(empty)" })
+    var index = content.length - 1
+    updateSidebar()
+
+    var newDiv = document.createElement("div")
+    newDiv.classList.add("sidebarElement")
+    newDiv.innerHTML = `<div class="notesElementDot"></div>
+<p class="sidebarElementParagraph">${content[content.length - 1].title}</p>`
+    newDiv.addEventListener("click", function() {
+        setNotesContent(index)
+    })
+    sidebar.appendChild(newDiv)
+    updateNoteTitle()
+    setNotesContent(index)
+
+    var note = document.getElementById("notecontent")
+    for (const child of note.children) {
+        child.contentEditable = "true"
+    }
+    note.lastChild.focus()
+    notesEditButtonState = "edit"
+    document.getElementById("notesEditButton").textContent = "Done"
+})
+
+function updateSidebar() {
+    if (content.length == 0) {
+        document.getElementById("sidebar").style.display = "none"
+    } else {
+        document.getElementById("sidebar").style.display = "flex"
+    }
+}
+updateSidebar()

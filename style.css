@@ -156,6 +156,18 @@
     margin-bottom: 11px;
 }
 
+#notecontentTitle:focus {
+    outline: 2px solid #BBAAFF;
+    border-radius: 5px;
+    background-color: rgba(187, 170, 255, 0.2);
+}
+
+#notecontentContent:focus {
+    outline: 2px solid #BBAAFF;
+    border-radius: 5px;
+    background-color: rgba(187, 170, 255, 0.2);
+}
+
 #notesEditButton {
     padding: 5px 10px;
     border-radius: 15px;
@@ -164,4 +176,15 @@
     background-color: #BBAAFF;
     cursor: pointer;
     align-self: center;
+}
+
+#notesNewButton {
+    padding: 4px 8px;
+    border-radius: 15px;
+    font-size: 15px;
+    border: black 1px solid;
+    background-color: #BBAAFF;
+    cursor: pointer;
+    align-self: center;
+    margin-top: 15px;
 }

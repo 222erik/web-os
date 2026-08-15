@@ -34,12 +34,15 @@
         </div>
 
         <div style="display: flex;">
-            <div>
+            <div style="display: flex; flex-direction: column;">
                 <h1 style="margin-top: 0; margin-bottom: 0;">Notes</h1>
-                <p style="text-align: left; font-size: 20px; margin-top: 5px;">This is the notes app.<br>Click on a note
+                <p style="text-align: left; font-size: 20px; margin-top: 5px; margin-bottom: 0px;">This is the notes
+                    app.<br>Create a new
+                    note
                     to<br>get started 🚀</p>
 
-                <div id="sidebar" style="display: flex; flex-direction: column; gap: 5px;"></div>
+                <div id="sidebar" style="display: flex; flex-direction: column; gap: 5px; margin-top: 10px;"></div>
+                <button type="button" id="notesNewButton">New Note</button>
             </div>
 
             <div id="notescontentwrapper" style="display: none; flex-direction: column;">
