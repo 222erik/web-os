@@ -52,6 +52,30 @@
         </div>
     </div>
 
+    <div id="calculator" class="window" style="display: none;">
+        <div id="calculatorheader" class="windowheader">
+            <div> </div>
+            <span style="font-weight:700; cursor: grab;">Calculator</span>
+            <button type="button" id="calculatorclose" class="closebutton">X</button>
+        </div>
+
+        <div>
+            <div id="calculatorDisplay">
+                <p style="margin-right: 20px; transform: translateY(5px); margin-top: 0; margin-bottom: 0;">0</p>
+            </div>
+            <div>
+                <div>
+                </div>
+                <div>
+                </div>
+                <div>
+                </div>
+                <div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div
         style="display: flex; justify-content: space-between; background-color: rgba(0,0,0,0.3); font-size:35px; color: #111100; z-index:1000; position: fixed; width:100%; left:0; top:0;">
         <p style="margin: 15px 15px; height: auto; color: white;">
@@ -76,6 +100,10 @@
             <div class="appwrapper">
                 <img src="notes_logo.png" id="notesLogo" class="appicon">
                 <div class="appdot" id="notesDot"></div>
+            </div>
+            <div class="appwrapper">
+                <img src="calculator_logo.png" id="calculatorLogo" class="appicon" style="background-color: white;">
+                <div class="appdot" id="calculatorDot"></div>
             </div>
         </div>
     </div>

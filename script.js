@@ -8,6 +8,7 @@ setInterval(updateTime, 1000)
 // Make the DIV element draggable:
 dragElement(document.getElementById("welcome"));
 dragElement(document.getElementById("notes"))
+dragElement(document.getElementById("calculator"))
 
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
 function dragElement(element) {
@@ -122,6 +123,7 @@ function initWindow(appname) {
 
 initWindow("welcome")
 initWindow("notes")
+initWindow("calculator")
 
 var content = [
     //    {
