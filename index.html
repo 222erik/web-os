@@ -63,16 +63,34 @@
             <div id="calculatorDisplay">
                 <p style="margin-right: 20px; transform: translateY(5px); margin-top: 0; margin-bottom: 0;">0</p>
             </div>
-            <div>
-                <div>
+            <div
+                style="display: flex; flex-direction: column; justify-content: space-between; height: 256px; padding-top: 20px;">
+                <div class="calculatorButtonContainer">
+                    <button type="button" class="calculatorButton">7</button>
+                    <button type="button" class="calculatorButton">8</button>
+                    <button type="button" class="calculatorButton">9</button>
+                    <button type="button" class="calculatorButton">÷</button>
                 </div>
-                <div>
+                <div class="calculatorButtonContainer">
+                    <button type="button" class="calculatorButton">4</button>
+                    <button type="button" class="calculatorButton">5</button>
+                    <button type="button" class="calculatorButton">6</button>
+                    <button type="button" class="calculatorButton">×</button>
                 </div>
-                <div>
+                <div class="calculatorButtonContainer">
+                    <button type="button" class="calculatorButton">1</button>
+                    <button type="button" class="calculatorButton">2</button>
+                    <button type="button" class="calculatorButton">3</button>
+                    <button type="button" class="calculatorButton">-</button>
                 </div>
-                <div>
+                <div class="calculatorButtonContainer">
+                    <button type="button" class="calculatorButton">0</button>
+                    <button type="button" class="calculatorButton">.</button>
+                    <button type="button" class="calculatorButton">=</button>
+                    <button type="button" class="calculatorButton">+</button>
                 </div>
             </div>
+            <button type="button" id="calculatorClearButton">Clear</button>
         </div>
     </div>
 
