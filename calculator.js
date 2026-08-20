@@ -24,15 +24,26 @@ function writeDigit(digit) {
 function writeSymbol(symbol) {
     let operatiorMentioned = false
     for (const op of ["+", "-", "×", "÷"]) {
-        console.log(op)
         if (display.textContent.includes(op)) {
             operatiorMentioned = true
         }
     }
 
-    if (displayState != "show" && !operatiorMentioned) {
+    let dotAllowed = true
+    for (const c of display.textContent.split("").reverse()) {
+        if (c == ".") {
+            dotAllowed = false
+            break
+        } else if (["+", "-", "×", "÷"].includes(c)) {
+            break
+        }
+    }
+
+    if (displayState != "show") {
         if (["+", "-", "×", "÷"].includes(symbol) && !operatiorMentioned) {
             display.textContent = display.textContent + symbol
+        } else if (symbol == "." && dotAllowed) {
+            display.textContent = display.textContent + "."
         }
     }
     displayState = "type"
