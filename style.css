@@ -191,7 +191,9 @@
 
 #calculatorDisplay {
     width: 250px;
-    height: 100px;
+    overflow-wrap: break-word;
+    min-height: 100px;
+    height: auto;
     border-radius: 20px;
     background-color: #AAAAAA;
     border: solid black 3px;
