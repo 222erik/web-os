@@ -78,6 +78,7 @@ function executeDisplay() {
             display.textContent = parseFloat(num1) / parseFloat(num2)
             break
     }
+    displayState = "show"
 }
 
 for (const button of buttons) {
