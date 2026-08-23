@@ -83,7 +83,7 @@ function executeDisplay() {
 
 for (const button of buttons) {
     button.addEventListener("click", function() {
-        if (["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"].includes(button.textContent)) {
+        if (["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "."].includes(button.textContent)) {
             writeDigit(button.textContent)
         } else if (operators.includes(button.textContent)) {
             writeSymbol(button.textContent)
